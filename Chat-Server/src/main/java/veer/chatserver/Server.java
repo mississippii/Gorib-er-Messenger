@@ -1,10 +1,9 @@
 package veer.chatserver;
 
-import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import veer.chatserver.Websocket.FlinkConsumer;
+import veer.chatserver.websocket.FlinkConsumer;
 
 @SpringBootApplication
 public class Server {

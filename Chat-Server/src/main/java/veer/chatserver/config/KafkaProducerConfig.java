@@ -7,10 +7,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import veer.chatserver.Websocket.FlinkConsumer;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
 @Data

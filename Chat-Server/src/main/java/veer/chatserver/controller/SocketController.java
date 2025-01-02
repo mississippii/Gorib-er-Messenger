@@ -1,0 +1,30 @@
+package veer.chatserver.controller;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+import veer.chatserver.websocket.ChatWebSocketHandler;
+
+import java.util.HashMap;
+
+@RestController
+@CrossOrigin(value = "*")
+public class SocketController {
+    private final ChatWebSocketHandler chatWebSocketHandler;
+
+    public SocketController(ChatWebSocketHandler chatWebSocketHandler) {
+        this.chatWebSocketHandler = chatWebSocketHandler;
+    }
+
+    @GetMapping("/active-users")
+    public HashMap<String, String> getActiveUsers() {
+        return chatWebSocketHandler.getActiveUser();
+    }
+    @PostMapping("/setname")
+    public HashMap<String, String> getActiveUsers(String name) {
+        HashMap<String, String>x= chatWebSocketHandler.getActiveUser();
+        x.put("name", name);
+        return x;
+    }
+}
