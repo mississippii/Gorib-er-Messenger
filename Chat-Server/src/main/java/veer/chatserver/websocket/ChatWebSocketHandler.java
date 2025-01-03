@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
+import veer.chatserver.streamhandler.StreamDistributor;
 
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,8 +15,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
     private final StreamDistributor streamDistributor;
-    private final ConcurrentHashMap<String, WebSocketSession> clients = new ConcurrentHashMap<>();
-    private final HashMap<String, String> activeUser = new HashMap<>();
+    public final ConcurrentHashMap<String, WebSocketSession> clients = new ConcurrentHashMap<>();
+    public final HashMap<String, String> activeUser = new HashMap<>();
 
     public ChatWebSocketHandler(StreamDistributor streamDistributor) {
         this.streamDistributor = streamDistributor;
@@ -41,12 +42,12 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         String ip = session.getRemoteAddress().getAddress().getHostAddress();
         String port = String.valueOf(session.getRemoteAddress().getPort());
         String clientKey = ip + ":" + port;
-        clients.remove(clientKey);
+        try {
+            this.clients.remove(clientKey);
+            this.activeUser.remove(clientKey);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Client disconnected: " + clientKey);
-    }
-    public HashMap<String, String> getActiveUser(){
-        HashMap<String,String> activeUser = new HashMap<>();
-        activeUser.putAll(activeUser);
-        return activeUser;
     }
 }

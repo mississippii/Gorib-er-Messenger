@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="46cd85b8-0dce-4fdd-8032-fcdf5c87d6e7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/config/SchedulingConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/ActiveUserBroadcaster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/controller/SocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/controller/SocketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/messagehandler/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/websocket/ChatWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/websocket/ChatWebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/websocket/StreamDistributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDistributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/config/KafkaProducerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/config/KafkaProducerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/controller/SocketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/controller/SocketController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/messagehandler/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/websocket/ChatWebSocketHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/websocket/ChatWebSocketHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/websocket/StreamDistributor.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/Server.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2piJtCPfbZxGNhkMP7xHg4mpXo0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.Chat-Server [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Chat-Server [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ChatServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Server.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.WebClientApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/veer/Documents/Java/Chat-App&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Spring Boot.Server">
+    <configuration name="Server" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Chat-Server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="veer.chatserver.Server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebClientApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="WebClient" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="veer.webclient.WebClientApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46cd85b8-0dce-4fdd-8032-fcdf5c87d6e7" name="Changes" comment="" />
+      <created>1733243176883</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733243176883</updated>
+      <workItem from="1733243180708" duration="3260000" />
+      <workItem from="1733246469216" duration="7816000" />
+      <workItem from="1733327148459" duration="3420000" />
+      <workItem from="1735833036966" duration="552000" />
+      <workItem from="1735841282969" duration="1296000" />
+      <workItem from="1735843887284" duration="5708000" />
+      <workItem from="1735890732569" duration="18000" />
+      <workItem from="1735891050441" duration="382000" />
+      <workItem from="1735914451951" duration="5370000" />
+      <workItem from="1735920947334" duration="1097000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDistributor.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamController.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/ActiveUserBroadcaster.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

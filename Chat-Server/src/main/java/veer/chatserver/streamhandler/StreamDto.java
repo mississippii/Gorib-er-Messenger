@@ -1,14 +1,24 @@
-package veer.chatserver.messagehandler;
+package veer.chatserver.streamhandler;
 
 import java.io.Serializable;
 
-public class Message implements Serializable {
+public class StreamDto implements Serializable {
+    private String type;
     private String sender;
     private String receiver;
     private String text;
-    public Message() {
+    public StreamDto() {
+    }
+    public StreamDto(String type, String sender, String receiver, String text) {
+        this.type = type;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.text = text;
     }
 
+    public String getType() {
+        return type;
+    }
     public String getSender() {
         return sender;
     }
@@ -21,12 +31,9 @@ public class Message implements Serializable {
         return text;
     }
 
-    public Message(String sender, String receiver, String text) {
-        this.sender = sender;
-        this.receiver = receiver;
-        this.text = text;
+    public void setType(String type) {
+        this.type = type;
     }
-
     public void setSender(String sender) {
         this.sender = sender;
     }

@@ -16,15 +16,4 @@ public class SocketController {
     public SocketController(ChatWebSocketHandler chatWebSocketHandler) {
         this.chatWebSocketHandler = chatWebSocketHandler;
     }
-
-    @GetMapping("/active-users")
-    public HashMap<String, String> getActiveUsers() {
-        return chatWebSocketHandler.getActiveUser();
-    }
-    @PostMapping("/setname")
-    public HashMap<String, String> getActiveUsers(String name) {
-        HashMap<String, String>x= chatWebSocketHandler.getActiveUser();
-        x.put("name", name);
-        return x;
-    }
 }
