@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class StreamController {
     public void handleTextMessage(WebSocketSession session, StreamDto msg, ConcurrentHashMap<String, WebSocketSession> clients) throws Exception {
         String receiver = msg.getReceiver();
-        String senderIp = session.getRemoteAddress().getAddress().getHostAddress();
+        String senderIp = session.getRemoteAddress().getAddress().getHostAddress()+":"+session.getRemoteAddress().getPort();
         msg.setSender(senderIp);
         WebSocketSession recipientSession = clients.get(receiver);
         if (recipientSession != null && recipientSession.isOpen()) {
