@@ -7,3 +7,4 @@
 /dataSources/
 /dataSources.local.xml
 /Chat-Server/target
+/node_modules

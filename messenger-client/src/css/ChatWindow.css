@@ -1,0 +1,45 @@
+/* ChatWindow.css */
+.chat-window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #eef3f7;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  max-width: 60%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  word-wrap: break-word;
+}
+
+.message.outgoing {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+}
+
+.message.incoming {
+  align-self: flex-start;
+  background-color: #f1f0f0;
+}
+
+@media (max-width: 768px) {
+  .chat-messages {
+    padding: 10px;
+  }
+
+  .message {
+    max-width: 80%;
+    font-size: 0.9em;
+  }
+}

@@ -1,0 +1,25 @@
+/* Messenger.css */
+.messenger {
+  display: flex;
+  height: 100vh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .messenger {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    order: 1; /* Sidebar at the top */
+  }
+
+  .main {
+    order: 2; /* Chat window below */
+  }
+}
