@@ -40,6 +40,8 @@ public class StreamDistributor {
                     case "video":
                         streamController.handleVideoStream(session, msg);
                         break;
+                    case "registration":
+                        streamController.handleRegistration(session,msg);
                     default:
                         session.sendMessage(new TextMessage("Error: Unknown stream type."));
                 }

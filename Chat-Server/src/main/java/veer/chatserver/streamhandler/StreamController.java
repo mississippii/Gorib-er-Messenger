@@ -30,4 +30,8 @@ public class StreamController {
     public void handleVideoStream(WebSocketSession session, StreamDto msg) {
     }
 
+    public void handleRegistration(WebSocketSession session, StreamDto msg) {
+
+    }
+
 }

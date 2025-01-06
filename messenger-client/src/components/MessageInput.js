@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import "../css/MessageInput.css";
 
-const MessageInput = ({ onSendMessage }) => {
+const MessageInput = ({ onSendMessage,sendMessage }) => {
   const [text, setText] = useState("");
 
   const handleSend = () => {
     if (text.trim()) {
       onSendMessage(text);
+      sendMessage(text);
       setText("");
     }
   };
