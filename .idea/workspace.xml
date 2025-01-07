@@ -5,28 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46cd85b8-0dce-4fdd-8032-fcdf5c87d6e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/dto/ChatMessageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/controller/SocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/controller/SocketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/repository/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/repository/UserRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/ActiveUserBroadcaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/ActiveUserBroadcaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDistributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDistributor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/dto/ConcurrentUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/config/KafkaProducerConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/config/ThreadConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/controller/SocketController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/websocket/ChatWebSocketHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/websocket/FlinkConsumer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/target/classes/veer/chatserver/websocket/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/messenger-client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/messenger-client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +45,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.ChatServerApplication.executor": "Run",
-    "Spring Boot.Server.executor": "Debug",
+    "Spring Boot.Server.executor": "Run",
     "Spring Boot.WebClientApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -124,7 +104,7 @@
       <workItem from="1735914451951" duration="5370000" />
       <workItem from="1735920947334" duration="1097000" />
       <workItem from="1736012525752" duration="17000" />
-      <workItem from="1736230008349" duration="17086000" />
+      <workItem from="1736230008349" duration="18328000" />
     </task>
     <servers />
   </component>
