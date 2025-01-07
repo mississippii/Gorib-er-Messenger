@@ -1,6 +1,6 @@
 // src/components/Sidebar.js
-import React from "react";
-import "../css/Sidebar.css";
+import React from 'react';
+import '../css/Sidebar.css';
 
 const Sidebar = ({ users, onSelectUser, selectedUser }) => {
   return (
@@ -8,7 +8,7 @@ const Sidebar = ({ users, onSelectUser, selectedUser }) => {
       {users?.map((user) => (
         <div
           key={user}
-          className={`user-item ${selectedUser === user ? "selected" : ""}`}
+          className={`user-item ${selectedUser === user ? 'selected' : ''}`}
           onClick={() => onSelectUser(user)}
         >
           <span className="username">{user}</span>

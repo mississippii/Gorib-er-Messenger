@@ -1,12 +1,13 @@
 // src/components/ChatWindow.js
-import React from "react";
-import "../css/ChatWindow.css";
+import React from 'react';
+import '../css/ChatWindow.css';
 
 const ChatWindow = ({ messages, selectedUser }) => {
+  console.log(messages);
   return (
     <div className="chat-window">
-      {/* <header className="chat-header">{selectedUser ? selectedUser : "Select a user"}</header> */}
-      {/* <div className="chat-messages">
+      <header className="chat-header">{selectedUser ? selectedUser : "Select a user"}</header>
+      <div className="chat-messages">
         {messages?.map((msg, index) => (
           <div
             key={index}
@@ -15,7 +16,7 @@ const ChatWindow = ({ messages, selectedUser }) => {
             {msg.text}
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };
