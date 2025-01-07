@@ -5,6 +5,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
+import veer.chatserver.dto.ConcurrentUserDto;
 import veer.chatserver.websocket.ChatWebSocketHandler;
 
 import java.util.HashMap;
@@ -33,7 +34,7 @@ public class ActiveUserBroadcaster {
                     Map<String, String> filteredUserList = chatWebSocketHandler.activeUser.entrySet().stream()
                             .filter(e -> !e.getKey().equals(clientIpPort))
                             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-                    UserDto activeUsers = new UserDto("users", (HashMap<String, String>) filteredUserList);
+                    ConcurrentUserDto activeUsers = new ConcurrentUserDto("users", (HashMap<String, String>) filteredUserList);
                     String activeUsersJson = objectMapper.writeValueAsString(activeUsers);
                     session.sendMessage(new TextMessage(activeUsersJson));
                 }

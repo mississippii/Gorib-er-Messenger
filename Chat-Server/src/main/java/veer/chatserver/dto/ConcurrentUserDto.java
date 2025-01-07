@@ -1,12 +1,12 @@
-package veer.chatserver.streamhandler;
+package veer.chatserver.dto;
 
 import java.io.Serializable;
 import java.util.HashMap;
 
-public class UserDto implements Serializable {
+public class ConcurrentUserDto implements Serializable {
     String type;
     HashMap<String,String> userList;
-    public UserDto() {
+    public ConcurrentUserDto() {
     }
 
     public String getType() {
@@ -17,7 +17,7 @@ public class UserDto implements Serializable {
         return userList;
     }
 
-    public UserDto(String type, HashMap<String, String> userList) {
+    public ConcurrentUserDto(String type, HashMap<String, String> userList) {
         this.type = type;
         this.userList = userList;
     }
