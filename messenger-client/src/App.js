@@ -1,10 +1,9 @@
-import React from "react";
-import Messenger from "./components/Messenger";
-import LoginPage from "./components/LoginPage";
-import "./css/App.css";
+import React from 'react';
+import Messenger from './components/Messenger';
+import './css/App.css';
 
 function App() {
-  return <LoginPage />;
+  return <Messenger />;
 }
 
 export default App;

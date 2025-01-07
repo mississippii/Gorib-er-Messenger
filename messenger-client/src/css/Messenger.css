@@ -2,6 +2,7 @@
 .messenger {
   display: flex;
   height: 100vh;
+  padding-bottom: 1rem;
 }
 
 .main {

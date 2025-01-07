@@ -1,46 +1,67 @@
-// src/components/Messenger.js
 import React, { useEffect, useState } from 'react';
 import '../css/Messenger.css';
 import ChatWindow from './ChatWindow';
 import MessageInput from './MessageInput';
 import Sidebar from './Sidebar';
-const Messenger = () => {
-  const [messages, setMessages] = useState({});
-  const [socket, setSocket] = useState(null);
-  const [activeUsers, setActiveUsers] = useState(null);
-  const [selectedUser, setSelectedUser] = useState(null);
 
+const Messenger = () => {
+  const [messages, setMessages] = useState({}); // Stores all messages for all users
+  const [socket, setSocket] = useState(null); // WebSocket connection
+  const [activeUsers, setActiveUsers] = useState([]); // List of active users
+  const [selectedUser, setSelectedUser] = useState(null); // Currently selected user for chat
+
+  // Initialize WebSocket
   useEffect(() => {
     const ws = new WebSocket('ws://103.248.13.73:8880/chat');
     setSocket(ws);
 
     ws.onopen = () => {
       console.log('WebSocket connection opened');
-      console.log('socket session:', ws);
     };
 
     ws.onmessage = (event) => {
       const incomingMessage = JSON.parse(event.data);
+
       switch (incomingMessage.type) {
-        case 'users':
+        case 'users': {
           const userList = incomingMessage.userList;
-          setActiveUsers(Object.keys(userList));
-          
+          const newActiveUsers = Object.keys(userList);
+
+          // Preserve messages for existing users and initialize new users
+          setMessages((prevMessages) => {
+            const updatedMessages = { ...prevMessages };
+
+            newActiveUsers.forEach((user) => {
+              if (!updatedMessages[user]) {
+                updatedMessages[user] = []; // Initialize empty messages for new users
+              }
+            });
+
+            return updatedMessages;
+          });
+
+          setActiveUsers(newActiveUsers);
           break;
-        case 'message':
-          setMessages((prevMessages) => [
+        }
+
+        case 'message': {
+          const { sender, text, receiver } = incomingMessage;
+
+          setMessages((prevMessages) => ({
             ...prevMessages,
-            {
-              sender: incomingMessage.sender,
-              text: incomingMessage.text,
-              receiver: incomingMessage.receiver,
-            },
-          ]);
+            [sender]: [
+              ...(prevMessages[sender] || []),
+              { sender, text, receiver },
+            ],
+          }));
           break;
-        case 'video':
+        }
+
+        case 'registration':
         case 'audio':
           console.log("Don't Receive video/audio data");
           break;
+
         default:
           console.log('Unknown message type:', incomingMessage.type);
       }
@@ -60,20 +81,11 @@ const Messenger = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const previousUsers = { ...messages };
-    activeUsers?.forEach((item) => {
-      if (!previousUsers[item]) {
-        previousUsers[item] = [];
-      }
-    });
-    setMessages({ ...previousUsers });
-  }, [activeUsers]);
-
+  // Handle sending messages
   const sendMessage = (text) => {
     const message = {
       type: 'message',
-      sender: '',
+      sender: '', // Add sender information (e.g., your username)
       receiver: selectedUser,
       text,
     };
@@ -83,44 +95,37 @@ const Messenger = () => {
     }
   };
 
+  // Update local message state and send message through WebSocket
   const handleSendMessage = (text) => {
-    let updateArray = [];
-    let updatedObj = {
-      ...messages,
-    };
-    Object.keys(messages).forEach((key) => {
-      if (key === selectedUser) {
-        updateArray = [
-          ...messages[key],
-          {
-            sender: 'me',
-            receiver: key,
-            text,
-          },
-        ];
-        updatedObj[key] = [...updateArray];
-      }
-    });
-    setMessages({ ...updatedObj });
+    setMessages((prevMessages) => ({
+      ...prevMessages,
+      [selectedUser]: [
+        ...(prevMessages[selectedUser] || []),
+        { sender: 'me', text, receiver: selectedUser },
+      ],
+    }));
+    sendMessage(text);
   };
 
   return (
     <div className="messenger">
       <Sidebar
-        users={activeUsers}
+        users={activeUsers} // Pass the updated user list
         selectedUser={selectedUser}
         onSelectUser={setSelectedUser}
       />
-      <div className="main">
-        <ChatWindow
-          messages={messages ? messages[selectedUser] : null}
-          selectedUser={selectedUser}
-        />
-        <MessageInput
-          onSendMessage={handleSendMessage}
-          sendMessage={sendMessage}
-        />
-      </div>
+      {selectedUser && (
+        <div className="main">
+          <ChatWindow
+            messages={messages[selectedUser] || []}
+            selectedUser={selectedUser}
+          />
+          <MessageInput
+            onSendMessage={handleSendMessage}
+            sendMessage={sendMessage}
+          />
+        </div>
+      )}
     </div>
   );
 };
