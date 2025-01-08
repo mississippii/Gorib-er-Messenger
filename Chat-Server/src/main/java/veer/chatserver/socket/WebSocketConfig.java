@@ -1,4 +1,4 @@
-package veer.chatserver.websocket;
+package veer.chatserver.socket;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
