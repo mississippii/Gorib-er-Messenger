@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import '../css/Messenger.css';
 import ChatWindow from './ChatWindow';
+import LoginPage from './LoginPage';
 import MessageInput from './MessageInput';
-import Sidebar from './Sidebar';
+import UserList from './UserList';
 
 const Messenger = () => {
   const [messages, setMessages] = useState({}); // Stores all messages for all users
   const [socket, setSocket] = useState(null); // WebSocket connection
   const [activeUsers, setActiveUsers] = useState([]); // List of active users
   const [selectedUser, setSelectedUser] = useState(null); // Currently selected user for chat
+  const [isApproved, setIsApproved] = useState(false);
 
   // Initialize WebSocket
   useEffect(() => {
@@ -107,13 +109,26 @@ const Messenger = () => {
     sendMessage(text);
   };
 
+  if (isApproved) {
+    return (
+      <>
+        <LoginPage />
+      </>
+    );
+  }
+
   return (
     <div className="messenger">
-      <Sidebar
-        users={activeUsers} // Pass the updated user list
+      <UserList
+        users={activeUsers}
         selectedUser={selectedUser}
         onSelectUser={setSelectedUser}
       />
+      {/* <Sidebar
+        users={activeUsers}
+        selectedUser={selectedUser}
+        onSelectUser={setSelectedUser}
+      /> */}
       {selectedUser && (
         <div className="main">
           <ChatWindow

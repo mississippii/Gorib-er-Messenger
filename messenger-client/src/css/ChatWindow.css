@@ -9,7 +9,6 @@
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-  background-color: #eef3f7;
   display: flex;
   flex-direction: column;
 }

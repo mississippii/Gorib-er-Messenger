@@ -15,7 +15,7 @@ const MessageInput = ({ onSendMessage, sendMessage }) => {
   };
 
   return (
-    <form className="flex gap-2 px-2" onSubmit={(e) => handleSend(e)}>
+    <form className="flex gap-2 px-2 bg-[#fff]" onSubmit={(e) => handleSend(e)}>
       <input
         type="text"
         placeholder="Type a message"
@@ -23,7 +23,7 @@ const MessageInput = ({ onSendMessage, sendMessage }) => {
         onChange={(e) => setText(e.target.value)}
         className="input input-bordered input-info w-full bg-white"
       />
-      <button className="btn btn-info text-white">Send</button>
+      <button className="btn bg-[#1d232a] text-white ">Send</button>
     </form>
   );
 };
