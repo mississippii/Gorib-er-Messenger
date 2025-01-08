@@ -1,10 +1,7 @@
-package veer.chatserver.streamhandler;
+package veer.chatserver.streams;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
@@ -17,6 +14,7 @@ import veer.chatserver.service.UserService;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
@@ -30,8 +28,9 @@ public class StreamController {
 
     public void handleTextMessage(WebSocketSession session, String message, ConcurrentHashMap<String, WebSocketSession> clients) throws Exception {
         ChatMessageDto messageDto =(ChatMessageDto) parseMessage(message);
+        assert messageDto != null;
         String receiver = messageDto.getReceiver();
-        String senderIp = session.getRemoteAddress().getAddress().getHostAddress()+":"+session.getRemoteAddress().getPort();
+        String senderIp = Objects.requireNonNull(session.getRemoteAddress()).getAddress().getHostAddress()+":"+session.getRemoteAddress().getPort();
         messageDto.setSender(senderIp);
         WebSocketSession recipientSession = clients.get(receiver);
         if (recipientSession != null && recipientSession.isOpen()) {
@@ -52,7 +51,8 @@ public class StreamController {
 
     public void handleRegistration(WebSocketSession session, String message) throws IOException {
         UserDto userDto =(UserDto) parseMessage(message);
-        String senderIp = session.getRemoteAddress().getAddress().getHostAddress()+":"+session.getRemoteAddress().getPort();
+        String senderIp = Objects.requireNonNull(session.getRemoteAddress()).getAddress().getHostAddress()+":"+session.getRemoteAddress().getPort();
+        assert userDto != null;
         userDto.setIpPort(senderIp);
         Map<String, String> messageMap = new HashMap<>();
         messageMap.put("type", "registration");

@@ -5,9 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import veer.chatserver.dto.UserDto;
-import veer.chatserver.entity.User;
 import veer.chatserver.service.UserService;
-import veer.chatserver.websocket.ChatWebSocketHandler;
 
 import java.util.List;
 

@@ -6,7 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="46cd85b8-0dce-4fdd-8032-fcdf5c87d6e7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/controller/SocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/controller/SocketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/dto/ConcurrentUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/dto/ConcurrentUserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/ActiveUserBroadcaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streams/ActiveUserBroadcaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streams/StreamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDistributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streams/StreamDistributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/websocket/ChatWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/socket/ChatWebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/websocket/FlinkConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/socket/FlinkConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/websocket/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/socket/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messenger-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/messenger-client/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,33 +44,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.Chat-Server [clean].executor": "Run",
-    "Maven.Chat-Server [install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.ChatServerApplication.executor": "Run",
-    "Spring Boot.Server.executor": "Run",
-    "Spring Boot.WebClientApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/veer/Documents/Java/Chat-App",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.260095",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.Chat-Server [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Chat-Server [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ChatServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Server.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.WebClientApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/veer/Documents/Java/Chat-App&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.260095&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.Server">
     <configuration name="Server" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Chat-Server" />
@@ -105,6 +115,8 @@
       <workItem from="1735920947334" duration="1097000" />
       <workItem from="1736012525752" duration="17000" />
       <workItem from="1736230008349" duration="18328000" />
+      <workItem from="1736316035052" duration="44000" />
+      <workItem from="1736327234898" duration="890000" />
     </task>
     <servers />
   </component>
@@ -115,7 +127,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDistributor.java</url>
+          <url>file://$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streams/StreamDistributor.java</url>
           <line>50</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>

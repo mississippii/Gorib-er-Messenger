@@ -1,4 +1,4 @@
-package veer.chatserver.streamhandler;
+package veer.chatserver.streams;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import veer.chatserver.dto.ConcurrentUserDto;
-import veer.chatserver.websocket.ChatWebSocketHandler;
+import veer.chatserver.socket.ChatWebSocketHandler;
 
 import java.util.HashMap;
 import java.util.Map;

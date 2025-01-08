@@ -4,18 +4,19 @@ import org.springframework.stereotype.Service;
 import veer.chatserver.dto.UserDto;
 import veer.chatserver.entity.User;
 import veer.chatserver.repository.UserRepo;
-import veer.chatserver.streamhandler.StreamDistributor;
-import veer.chatserver.websocket.ChatWebSocketHandler;
+import veer.chatserver.streams.StreamDistributor;
+import veer.chatserver.socket.ChatWebSocketHandler;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserService {
     private final UserRepo userRepo;
     private final ChatWebSocketHandler chatWebSocketHandler;
 
-    public UserService(UserRepo userRepo, StreamDistributor streamDistributor, ChatWebSocketHandler chatWebSocketHandler) {
+    public UserService(UserRepo userRepo, ChatWebSocketHandler chatWebSocketHandler) {
         this.userRepo = userRepo;
         this.chatWebSocketHandler = chatWebSocketHandler;
     }
@@ -40,7 +41,7 @@ public class UserService {
             newUser.setName(name);
             newUser.setPassword(password);
             newUser.setIpPort(ipPort);
-            if(newUser.getPassword()=="") {
+            if(Objects.equals(newUser.getPassword(), "")) {
                 newUser.setPassword(name);
             }
             userRepo.save(newUser);
