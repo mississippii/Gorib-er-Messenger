@@ -1,10 +1,10 @@
 const SearchBar = () => {
   return (
-    <div className="p-4">
+    <div>
       <input
         type="text"
-        placeholder="Search"
-        className="input input-bordered w-full text-white"
+        placeholder="Search a name here"
+        className="input input-bordered input-info w-full max-w-xs bg-transparent"
       />
     </div>
   );

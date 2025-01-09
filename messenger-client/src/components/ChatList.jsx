@@ -12,7 +12,7 @@ const ChatList = ({ users, onSelectUser, selectedUser }) => {
   });
 
   return (
-    <div className="p-4" >
+    <div className="flex flex-col gap-3 pt-4">
       {chats.map((chat, index) => (
         <ChatItem
           key={index}

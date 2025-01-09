@@ -1,11 +1,10 @@
 // src/components/ChatWindow.js
 import React from 'react';
-import '../css/ChatWindow.css';
 
 const ChatWindow = ({ messages, selectedUser }) => {
   return (
-    <div className="chat-window">
-      <header className="chat-header bg-[#fff] flex items-center justify-between px-4 py-3 shadow-xl">
+    <div>
+      <header className="chat-header flex items-center justify-between shadow-sm p-3">
         <div className="flex gap-2 ">
           <div className="avatar">
             <div className="w-14 rounded-full">
@@ -30,7 +29,7 @@ const ChatWindow = ({ messages, selectedUser }) => {
           <i class="fa-solid fa-ellipsis cursor-pointer"></i>
         </div>
       </header>
-      <div className="chat-messages">
+      <div className="p-3">
         {messages?.map((msg, index) => (
           <div
             className={`chat ${

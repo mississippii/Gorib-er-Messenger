@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../css/Messenger.css';
+import { Toaster, toast } from 'react-hot-toast';
 import ChatWindow from './ChatWindow';
 import LoginPage from './LoginPage';
 import MessageInput from './MessageInput';
@@ -41,7 +41,7 @@ const Messenger = () => {
 
             return updatedMessages;
           });
-
+          console.log(incomingMessage);
           setActiveUsers(newActiveUsers);
           break;
         }
@@ -60,6 +60,14 @@ const Messenger = () => {
         }
 
         case 'registration':
+          const { text } = incomingMessage;
+          if (text === 'Approved') {
+            setIsApproved(true);
+            toast.success('Login successful!');
+          } else {
+            toast.error('Username or Password mismatch!');
+          }
+          break;
         case 'audio':
           console.log("Don't Receive video/audio data");
           break;
@@ -97,7 +105,18 @@ const Messenger = () => {
     }
   };
 
-  // Update local message state and send message through WebSocket
+  const sendLoginDetails = (formData) => {
+    if (socket) {
+      socket.send(
+        JSON.stringify({
+          type: 'registration',
+          name: formData.name,
+          password: formData.password,
+        })
+      );
+    }
+  };
+
   const handleSendMessage = (text) => {
     setMessages((prevMessages) => ({
       ...prevMessages,
@@ -109,38 +128,40 @@ const Messenger = () => {
     sendMessage(text);
   };
 
-  if (isApproved) {
-    return (
-      <>
-        <LoginPage />
-      </>
-    );
-  }
-
   return (
-    <div className="messenger">
-      <UserList
-        users={activeUsers}
-        selectedUser={selectedUser}
-        onSelectUser={setSelectedUser}
-      />
-      {/* <Sidebar
-        users={activeUsers}
-        selectedUser={selectedUser}
-        onSelectUser={setSelectedUser}
-      /> */}
-      {selectedUser && (
-        <div className="main">
-          <ChatWindow
-            messages={messages[selectedUser] || []}
-            selectedUser={selectedUser}
-          />
-          <MessageInput
-            onSendMessage={handleSendMessage}
-            sendMessage={sendMessage}
-          />
+    <div className="h-screen">
+      {isApproved ? (
+        <div className="flex h-full">
+          <div className="basis-1/6 h-full">
+            <UserList
+              users={activeUsers}
+              selectedUser={selectedUser}
+              onSelectUser={setSelectedUser}
+            />
+          </div>
+          {selectedUser && (
+            <div className="basis-5/6 flex flex-col justify-between h-full">
+              <ChatWindow
+                messages={messages[selectedUser] || []}
+                selectedUser={selectedUser}
+              />
+              <MessageInput
+                onSendMessage={handleSendMessage}
+                sendMessage={sendMessage}
+              />
+            </div>
+          )}
         </div>
+      ) : (
+        <LoginPage sendLoginDetails={sendLoginDetails} />
       )}
+
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 3000,
+        }}
+      />
     </div>
   );
 };
