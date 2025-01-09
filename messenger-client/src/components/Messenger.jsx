@@ -49,6 +49,8 @@ const Messenger = () => {
         case 'message': {
           const { sender, text, receiver } = incomingMessage;
 
+          console.log('incoming message two');
+
           setMessages((prevMessages) => ({
             ...prevMessages,
             [sender]: [
@@ -65,7 +67,7 @@ const Messenger = () => {
             setIsApproved(true);
             toast.success('Login successful!');
           } else {
-            toast.error('Username or Password mismatch!');
+            toast.error('Username already taken!');
           }
           break;
         case 'audio':
@@ -111,7 +113,8 @@ const Messenger = () => {
         JSON.stringify({
           type: 'registration',
           name: formData.name,
-          password: formData.password,
+          password: null,
+          // password: formData.password,
         })
       );
     }
@@ -129,7 +132,7 @@ const Messenger = () => {
   };
 
   return (
-    <div className="h-screen">
+    <div className="h-screen w-[1500px] mx-auto ">
       {isApproved ? (
         <div className="flex h-full">
           <div className="basis-1/6 h-full">
@@ -140,15 +143,12 @@ const Messenger = () => {
             />
           </div>
           {selectedUser && (
-            <div className="basis-5/6 flex flex-col justify-between h-full">
+            <div className="basis-5/6 flex flex-col justify-between h-full bg-white">
               <ChatWindow
                 messages={messages[selectedUser] || []}
                 selectedUser={selectedUser}
               />
-              <MessageInput
-                onSendMessage={handleSendMessage}
-                sendMessage={sendMessage}
-              />
+              <MessageInput onSendMessage={handleSendMessage} />
             </div>
           )}
         </div>

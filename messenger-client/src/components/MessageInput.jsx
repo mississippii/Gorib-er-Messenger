@@ -1,14 +1,13 @@
 // src/components/MessageInput.js
 import React, { useState } from 'react';
 
-const MessageInput = ({ onSendMessage, sendMessage }) => {
+const MessageInput = ({ onSendMessage }) => {
   const [text, setText] = useState('');
 
   const handleSend = (e) => {
     e.preventDefault();
     if (text.trim()) {
       onSendMessage(text);
-      sendMessage(text);
       setText('');
     }
   };
