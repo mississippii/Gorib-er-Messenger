@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46cd85b8-0dce-4fdd-8032-fcdf5c87d6e7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/controller/SocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/controller/SocketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/dto/ConcurrentUserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/dto/ConcurrentUserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/ActiveUserBroadcaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streams/ActiveUserBroadcaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streams/StreamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDistributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streams/StreamDistributor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streamhandler/StreamDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/websocket/ChatWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/socket/ChatWebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/websocket/FlinkConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/socket/FlinkConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/websocket/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/socket/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messenger-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/messenger-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat-Server/mvnw.cmd" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,13 +53,13 @@
     &quot;Spring Boot.WebClientApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/veer/Documents/Java/Chat-App&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/veer/Documents/Java/Gorib-er-Messenger&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.260095&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -90,8 +84,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
       </set>
     </attachedChunks>
   </component>
@@ -117,21 +111,25 @@
       <workItem from="1736230008349" duration="18328000" />
       <workItem from="1736316035052" duration="44000" />
       <workItem from="1736327234898" duration="890000" />
+      <workItem from="1738524260236" duration="347000" />
+      <workItem from="1738612185137" duration="5000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Chat-Server/src/main/java/veer/chatserver/streams/StreamDistributor.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:react" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-websocket" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:tailwindcss" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.flink:flink-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-messaging" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
 </project>

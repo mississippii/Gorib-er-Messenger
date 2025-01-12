@@ -1,13 +1,13 @@
-// src/components/ChatWindow.js
 import React from 'react';
 
-const ChatWindow = ({ messages, selectedUser }) => {
+const ChatWindow = ({ messages, selectedUser, users }) => {
+  const activeUserName = users?.find((user) => user.ip === selectedUser).name;
   return (
     <div>
       <header className="chat-header flex items-center justify-between shadow-sm p-3">
         <div className="flex gap-2 ">
           <div className="avatar">
-            <div className="w-14 rounded-full">
+            <div className="w-10 h-10 rounded-full">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ71Tc9Tk2q1eJUUlX1bXhWrc0-g8O9xnAplw&s"
                 alt="user"
@@ -15,15 +15,11 @@ const ChatWindow = ({ messages, selectedUser }) => {
             </div>
           </div>
           <div>
-            <h6 className="text-xl">
-              {selectedUser ? selectedUser : 'Select a user'}
-            </h6>
-            <div className="badge text-white bg-[#0D9276] border-none">
-              Active
-            </div>
+            <h6 className="text-xl">{activeUserName}</h6>
+            <div className="rounded-full h-2 w-2 bg-green-500"></div>
           </div>
         </div>
-        <div className="flex gap-4 text-xl">
+        <div className="flex gap-4 text-md">
           <i class="fa-solid fa-phone cursor-pointer"></i>
           <i class="fa-solid fa-video cursor-pointer"></i>
           <i class="fa-solid fa-ellipsis cursor-pointer"></i>
@@ -44,14 +40,6 @@ const ChatWindow = ({ messages, selectedUser }) => {
               {msg.text}
             </div>
           </div>
-          // <div
-          //   key={index}
-          //   className={`message ${
-          //     msg.sender === 'me' ? 'outgoing' : 'incoming'
-          //   }`}
-          // >
-          //   {msg.text}
-          // </div>
         ))}
       </div>
     </div>

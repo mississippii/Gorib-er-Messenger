@@ -8,7 +8,7 @@ import UserList from './UserList';
 const Messenger = () => {
   const [messages, setMessages] = useState({}); // Stores all messages for all users
   const [socket, setSocket] = useState(null); // WebSocket connection
-  const [activeUsers, setActiveUsers] = useState([]); // List of active users
+  const [activeUsers, setActiveUsers] = useState([]); // List of active users with names and IPs
   const [selectedUser, setSelectedUser] = useState(null); // Currently selected user for chat
   const [isApproved, setIsApproved] = useState(false);
 
@@ -26,30 +26,33 @@ const Messenger = () => {
 
       switch (incomingMessage.type) {
         case 'users': {
-          const userList = incomingMessage.userList;
-          const newActiveUsers = Object.keys(userList);
+          const userList = incomingMessage.userList; // Incoming data
+          console.log(userList);
+
+          const newActiveUsers = Object.keys(userList).map((ip) => ({
+            ip, // Use IP for functionality
+            name: userList[ip], // Extract name for display
+          }));
 
           // Preserve messages for existing users and initialize new users
           setMessages((prevMessages) => {
             const updatedMessages = { ...prevMessages };
 
-            newActiveUsers.forEach((user) => {
-              if (!updatedMessages[user]) {
-                updatedMessages[user] = []; // Initialize empty messages for new users
+            newActiveUsers.forEach(({ ip }) => {
+              if (!updatedMessages[ip]) {
+                updatedMessages[ip] = []; // Initialize empty messages for new users
               }
             });
 
             return updatedMessages;
           });
-          console.log(incomingMessage);
+
           setActiveUsers(newActiveUsers);
           break;
         }
 
         case 'message': {
           const { sender, text, receiver } = incomingMessage;
-
-          console.log('incoming message two');
 
           setMessages((prevMessages) => ({
             ...prevMessages,
@@ -61,7 +64,7 @@ const Messenger = () => {
           break;
         }
 
-        case 'registration':
+        case 'registration': {
           const { text } = incomingMessage;
           if (text === 'Approved') {
             setIsApproved(true);
@@ -70,9 +73,12 @@ const Messenger = () => {
             toast.error('Username already taken!');
           }
           break;
-        case 'audio':
+        }
+
+        case 'audio': {
           console.log("Don't Receive video/audio data");
           break;
+        }
 
         default:
           console.log('Unknown message type:', incomingMessage.type);
@@ -114,7 +120,6 @@ const Messenger = () => {
           type: 'registration',
           name: formData.name,
           password: null,
-          // password: formData.password,
         })
       );
     }
@@ -132,21 +137,25 @@ const Messenger = () => {
   };
 
   return (
-    <div className="h-screen w-[1500px] mx-auto ">
+    <div className="h-screen w-[1500px] mx-auto">
       {isApproved ? (
         <div className="flex h-full">
-          <div className="basis-1/6 h-full">
+          {/* User List */}
+          <div className="basis-2/6 h-full">
             <UserList
-              users={activeUsers}
-              selectedUser={selectedUser}
-              onSelectUser={setSelectedUser}
+              users={activeUsers} // Pass users with names and IPs
+              selectedUser={selectedUser} // Currently selected user's IP
+              onSelectUser={setSelectedUser} // Update selected user
             />
           </div>
+
+          {/* Chat Window */}
           {selectedUser && (
-            <div className="basis-5/6 flex flex-col justify-between h-full bg-white">
+            <div className="basis-4/6 flex flex-col justify-between h-full bg-white">
               <ChatWindow
                 messages={messages[selectedUser] || []}
                 selectedUser={selectedUser}
+                users={activeUsers}
               />
               <MessageInput onSendMessage={handleSendMessage} />
             </div>
