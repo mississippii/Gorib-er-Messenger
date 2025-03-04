@@ -8,7 +8,10 @@ import org.springframework.web.socket.WebSocketSession;
 import veer.chatserver.dto.ConcurrentUserDto;
 import veer.chatserver.socket.ChatWebSocketHandler;
 
+import java.net.InetSocketAddress;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -27,17 +30,23 @@ public class ActiveUserBroadcaster {
         try {
             ConcurrentHashMap<String, WebSocketSession> clients = chatWebSocketHandler.clients;
             ObjectMapper objectMapper = new ObjectMapper();
-            for (Map.Entry<String, WebSocketSession> entry : clients.entrySet()) {
-                WebSocketSession session = entry.getValue();
-                if (session.isOpen()) {
-                    String clientIpPort = session.getRemoteAddress().toString().replace("/", "");
-                    Map<String, String> filteredUserList = chatWebSocketHandler.activeUser.entrySet().stream()
-                            .filter(e -> !e.getKey().equals(clientIpPort))
-                            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-                    ConcurrentUserDto activeUsers = new ConcurrentUserDto("users", (HashMap<String, String>) filteredUserList);
-                    String activeUsersJson = objectMapper.writeValueAsString(activeUsers);
-                    session.sendMessage(new TextMessage(activeUsersJson));
+            List<WebSocketSession> sessionsSnapshot = new ArrayList<>(clients.values());
+
+            for (WebSocketSession currentSession : sessionsSnapshot) {
+                if (!currentSession.isOpen()) continue;
+                InetSocketAddress currentRemoteAddress = (InetSocketAddress) currentSession.getRemoteAddress();
+
+                HashMap<String, String> filteredUserList = new HashMap<>();
+                for (WebSocketSession session : sessionsSnapshot) {
+                    if (session == currentSession) continue; // Skip self
+
+                    InetSocketAddress remoteAddress = (InetSocketAddress) session.getRemoteAddress();
+                    String ipPort = remoteAddress.getAddress().getHostAddress() + ":" + remoteAddress.getPort();
+                    filteredUserList.put(ipPort, chatWebSocketHandler.activeUser.get(ipPort));
                 }
+                ConcurrentUserDto activeUsers = new ConcurrentUserDto("users", filteredUserList);
+                String activeUsersJson = objectMapper.writeValueAsString(activeUsers);
+                currentSession.sendMessage(new TextMessage(activeUsersJson));
             }
         } catch (Exception e) {
             e.printStackTrace();
