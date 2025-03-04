@@ -14,7 +14,7 @@ const Messenger = () => {
 
   // Initialize WebSocket
   useEffect(() => {
-    const ws = new WebSocket('ws://103.248.13.73:8880/chat');
+    const ws = new WebSocket('ws://localhost:8880/chat');
     setSocket(ws);
 
     ws.onopen = () => {

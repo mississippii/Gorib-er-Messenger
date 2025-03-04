@@ -17,7 +17,7 @@ public class KafkaProducerConfig {
     @Bean
     public Properties producerProperties() {
         Properties props = new Properties();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "103.248.13.73:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "103.95.96.98:9092");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         return props;

@@ -1,6 +1,9 @@
 package veer.chatserver.socket;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -17,11 +20,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
     private final StreamDistributor streamDistributor;
+    private final TaskExecutor executor;
     public final ConcurrentHashMap<String, WebSocketSession> clients = new ConcurrentHashMap<>();
     public final HashMap<String, String> activeUser = new HashMap<>();
 
-    public ChatWebSocketHandler(StreamDistributor streamDistributor) {
+    public ChatWebSocketHandler(StreamDistributor streamDistributor, @Qualifier("webSocketTaskExecutor") TaskExecutor executor) {
         this.streamDistributor = streamDistributor;
+        this.executor = executor;
     }
 
     @Override
@@ -33,8 +38,14 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         activeUser.put(clientKey, session.getId());
     }
     @Override
-    public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        streamDistributor.distribute(session,message,clients);
+    public void handleTextMessage(WebSocketSession session, TextMessage message){
+        executor.execute(() -> {
+            try {
+                streamDistributor.distribute(session, message, clients);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     @Override
